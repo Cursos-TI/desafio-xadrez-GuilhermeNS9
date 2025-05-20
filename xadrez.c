@@ -1,21 +1,32 @@
 #include <stdio.h>
 
 int main() {
+    int movimentosTorre, movimentosBispo, movimentosRainha, movimentosCavalo;
+
+    // Entrada de dados do usuário
+    printf("Digite o número de casas para a Torre (direita): ");
+    scanf("%d", &movimentosTorre);
+
+    printf("Digite o número de casas para o Bispo (diagonal cima-direita): ");
+    scanf("%d", &movimentosBispo);
+
+    printf("Digite o número de casas para a Rainha (esquerda): ");
+    scanf("%d", &movimentosRainha);
+
+    printf("Digite o número de movimentos do Cavalo (em L - 2 Baixo + 1 Esquerda): ");
+    scanf("%d", &movimentosCavalo);
+
     // ============================
-    // Simulação da Torre
+    // Simulação da Torre com FOR
     // ============================
-    // A torre se moverá 5 casas para a direita usando o loop FOR
-    int movimentosTorre = 5;
-    printf("Movimento da Torre:\n");
+    printf("\nMovimento da Torre:\n");
     for (int i = 0; i < movimentosTorre; i++) {
         printf("Direita\n");
     }
 
     // ============================
-    // Simulação do Bispo
+    // Simulação do Bispo com WHILE
     // ============================
-    // O bispo se moverá 5 casas na diagonal para cima e à direita usando o loop WHILE
-    int movimentosBispo = 5;
     int i = 0;
     printf("\nMovimento do Bispo:\n");
     while (i < movimentosBispo) {
@@ -24,17 +35,34 @@ int main() {
     }
 
     // ============================
-    // Simulação da Rainha
+    // Simulação da Rainha com DO-WHILE
     // ============================
-    // A rainha se moverá 8 casas para a esquerda usando o loop DO-WHILE
-    int movimentosRainha = 8;
     int j = 0;
     printf("\nMovimento da Rainha:\n");
-    do {
+    if (movimentosRainha > 0) {
+        do {
+            printf("Esquerda\n");
+            j++;
+        } while (j < movimentosRainha);
+    }
+
+    // ============================
+    // Simulação do Cavalo com FOR + WHILE
+    // ============================
+    printf("\nMovimento do Cavalo:\n");
+
+    for (int m = 0; m < movimentosCavalo; m++) {
+        int passo = 0;
+
+        // 2 passos para baixo
+        while (passo < 2) {
+            printf("Baixo\n");
+            passo++;
+        }
+
+        // 1 passo para a esquerda
         printf("Esquerda\n");
-        j++;
-    } while (j < movimentosRainha);
+    }
 
     return 0;
 }
-
